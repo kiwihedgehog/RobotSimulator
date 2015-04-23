@@ -71,7 +71,7 @@ public class SimulatorEngineState {
         
         while(!commands.equals("go")){
         
-           commands = myCommands.next().toString();
+           commands = myCommands.next();
             switch (commands) {
                 case "go":
                     commands = "go";
@@ -94,6 +94,7 @@ public class SimulatorEngineState {
             // The if statement below is to stop the program adding the user interface commands to the robots command list
             if(!commands.equals("commands") || !commands.equals("go")){
                 userCommands.addCommandToList(commands);
+            
             }
         }
         
@@ -113,22 +114,21 @@ public class SimulatorEngineState {
     for(int i = 0; i > userCommands.getCommandList().size(); i++){
         
         switch(userCommands.getCommandList().get(i).toString()) {
-            case "stop": userCommands.stopRobot();
-                break;
-            case "forward": userCommands.forward(25);
+            case "forward": userCommands.forward(78);
                 break;
             case "backward": userCommands.backwards(23);
                 break;
-            case "left": userCommands.left(34);
+            case "left": userCommands.left(userCommands.getDegreesToTurn());
                 break;
-            case "right": userCommands.right(46);
+            case "right": userCommands.right(userCommands.getDegreesToTurn());
                 break;
-            case "wait": userCommands.wait(23);
+            case "wait": userCommands.wait(userCommands.getWaitTime());
                 break;
-            default: System.out.println("Command not recognized");
+            default: System.out.println("Command not recognized: " + userCommands.getCommandList().get(i));
         }
     }
     }
+    
     
     
     

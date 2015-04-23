@@ -19,7 +19,7 @@ public class RobotSimulator {
 
        mySimulation.setEngineState(1);
        mySimulation.setEngineState(2);
-       
+       mySimulation.setEngineState(3);
     }
     
 }

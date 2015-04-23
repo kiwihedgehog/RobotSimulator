@@ -16,10 +16,9 @@ class Commands {
     private double centimetres;
     private Movement moveToLocation;
     private Robot myRobot;
-    private int stopTime;
+    
     
     public Commands() {
-        instructionList.add("stop - Stops the robot");
         instructionList.add("forward - Moves the robot forward at default motor speed.");
         instructionList.add("backward - Moves the robot back at a default motor speed.");
         instructionList.add("left - Turns the robot left at the current set speed.");
@@ -28,11 +27,7 @@ class Commands {
         instructionList.add("go - Starts the simulation after commands are entered.");
         instructionList.add("exit - Exits the Robot Simulator.");
     }
-    //Methods implemented here in the commands class for later expansion of command utility and structure.
-    public void stopRobot(){
-        
-    }
-    
+    //Methods implemented here in the commands class for later expansion of command utility and structure.    
     public void left (int degrees) {
      int finalFace = moveToLocation.turnLeft(degrees);
      
@@ -50,7 +45,6 @@ class Commands {
     public void wait(int seconds){
         
     }
-
     public void setCentimetres(double centimetres) {
         this.centimetres = centimetres;
     }
@@ -110,10 +104,6 @@ class Commands {
 
     public ArrayList<String> getInstructionList() {
         return instructionList;
-    }
-
-    void setStopTime(int stopTime) {
-       this.stopTime = stopTime;
     }
 
    
