@@ -87,6 +87,15 @@ public class SimulatorEngineState {
                     int waitTime = myCommands.nextInt(); 
                     userCommands.setWaitTime(waitTime);
                     break;
+                case "forward": System.out.println("In centimetres, how far would you like to move forward?");
+                int centimetresForward = myCommands.nextInt();
+                userCommands.setForwardDistance(centimetresForward);
+                    break;
+                case "backward": System.out.println("In centimetres, how far would you like to move backwards?");
+                int centimetresBackward = myCommands.nextInt();
+                userCommands.setBackwardsDistance(centimetresBackward);
+                        
+                    break;
                 case "exit":  // Can change the code to finish everything it is doing and exit via control flow.
                     System.exit(0);
                 default: ;
@@ -114,9 +123,9 @@ public class SimulatorEngineState {
     for(int i = 0; i > userCommands.getCommandList().size(); i++){
         
         switch(userCommands.getCommandList().get(i).toString()) {
-            case "forward": userCommands.forward(78);
+            case "forward": userCommands.forward(userCommands.getForwardDistance());
                 break;
-            case "backward": userCommands.backwards(23);
+            case "backward": userCommands.backwards(userCommands.getBackwardsDistance());
                 break;
             case "left": userCommands.left(userCommands.getDegreesToTurn());
                 break;

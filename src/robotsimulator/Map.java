@@ -34,9 +34,36 @@ class Map {
     public int getyCoordinates() {
         return yCoordinates;
     }
-
-    public void setCardinalDirection(String cardinalDirection) {
-        this.cardinalDirection = cardinalDirection;
+    //Uses the rotational degree to determine the cardinal direction.
+    public String setCardinalDirection(int rotationalDegree){
+        
+        // Numbers in each part of the if statement need to be changed to more accuratley describe the cardinal direction.
+        if(rotationalDegree <= 45){
+            cardinalDirection = "North";
+        }
+        else if(rotationalDegree > 45 && rotationalDegree <= 90){
+            cardinalDirection = "North-East";
+        }
+        else if(rotationalDegree > 90 && rotationalDegree <=  135) {
+            cardinalDirection = "East";
+        }
+        else if(rotationalDegree > 135 && rotationalDegree <= 180) {
+            cardinalDirection = "South-East";
+        }
+        else if (rotationalDegree > 180 && rotationalDegree <= 225) {
+            cardinalDirection = "South";
+        }
+        else if (rotationalDegree > 225 && rotationalDegree <= 270) {
+            cardinalDirection = "South-West";
+        }
+        else if (rotationalDegree > 270 && rotationalDegree <= 315) {
+            cardinalDirection = "West";
+        }
+        else if (rotationalDegree > 315 && rotationalDegree <= 360) {
+            cardinalDirection = "North-West";
+        }
+        else{ }
+        return cardinalDirection;
     }
 
     public void setRotationalDegree(int rotationalDegree) {

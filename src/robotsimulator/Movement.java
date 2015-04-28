@@ -7,16 +7,11 @@ import java.util.ArrayList;
  * @author masona11
  */
 class Movement {
-    private Map surfaceArea = new Map();
     int degreeDirection;
     private Robot myRobot;
-    public ArrayList calculatePosition(ArrayList timeQeue){ //should have more intake parametres
-               
-        return timeQeue;
-    }
     
     public int calculateRotation(int motorPowerRight, int motorPowerLeft) {
-        int degreesToTurn;
+        int degreesToTurn; // place holder
         int forceDifference = 0;
         boolean right = true;
         
@@ -33,34 +28,6 @@ class Movement {
         
         
         return degreesToTurn;
-    }
-    
-    public String calculateDirectionalFace(int degreeDirection) {
-        // Switch statement to get face position.
-        
-        int i = 0;
-        switch(i) {
-            case 1: surfaceArea.cardinalDirection = "North";
-                break;
-            case 2: surfaceArea.cardinalDirection = "North East";
-                break;
-            case 3: surfaceArea.cardinalDirection = "East";
-                break;
-            case 4: surfaceArea.cardinalDirection = "South East";
-                break;
-            case 5: surfaceArea.cardinalDirection = "South";
-                break;
-            case 6: surfaceArea.cardinalDirection = "South West";
-                break;
-            case 7: surfaceArea.cardinalDirection = "West";
-                break;
-            case 8: surfaceArea.cardinalDirection = "North West";    
-                break;
-                
-                
-        }
-        
-    return surfaceArea.cardinalDirection;
     }
 
     public boolean isBetween(int x, int lower, int upper){
@@ -94,6 +61,30 @@ class Movement {
     }
 
     public void moveForward(int centimetres) {
+       Map forwardLocation = myRobot.getRobotLocation();
+       int newCoordinates;
+       
+       // Uses the cardinal direction to establish which of its four degrees of movement it will take.
+       switch(forwardLocation.getCardinalDirection()) {
+           case "North":
+              newCoordinates = forwardLocation.getyCoordinates() +  centimetres;
+              forwardLocation.setyCoordinates(newCoordinates);
+               break;
+           case "East":
+               newCoordinates = forwardLocation.getxCoordinates() + centimetres;
+               forwardLocation.setxCoordinates(newCoordinates);
+               break;
+           case "South":
+               newCoordinates = forwardLocation.getyCoordinates() - centimetres;
+               forwardLocation.setyCoordinates(newCoordinates);
+               break;
+           case "West": 
+               newCoordinates = forwardLocation.getxCoordinates() - centimetres;
+               forwardLocation.setxCoordinates(newCoordinates);
+               break;
+       }
+       myRobot.setRobotLocation(forwardLocation);
+       
     }
     
 

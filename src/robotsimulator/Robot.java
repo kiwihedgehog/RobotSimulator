@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author masona11
  */
 class Robot {
-   private Map surfaceArea = new Map();
+   private Map robotLocation = new Map();
    
     
    private Motor leftMotor;
@@ -15,7 +15,7 @@ class Robot {
    private final int maxMovementSpeed = 100;
    private int TotaldistanceTravelled;
    ArrayList positionLog = new ArrayList();
-   private int[][] mapLocationLog = new int[2000][2000]; //We need to dynamicaly set the array size after we know what commands the user will make.
+   private int[][] mapLocationLog = new int[2000][2000]; 
 
     public Motor getLeftMotor() {
         return leftMotor;
@@ -40,6 +40,17 @@ class Robot {
     public void setMapLocationLog(int[][] mapLocationLog) {
         this.mapLocationLog = mapLocationLog;
     }
+
+    public Map getRobotLocation() {
+        return robotLocation;
+    }
+
+    public void setRobotLocation(Map robotLocation) {
+        this.robotLocation = robotLocation;
+        
+        
+    }
+    
 
     //Prints all the map data for the current Robot.
    public void printPosition(Map currentMapData){

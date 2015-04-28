@@ -13,6 +13,8 @@ class Commands {
     final private ArrayList<String> instructionList = new ArrayList();
     private int degreesToTurn;
     private int waitTime;
+    private int forwardDistance;
+    private int backwardsDistance;
     private double centimetres;
     private Movement moveToLocation;
     private Robot myRobot;
@@ -106,6 +108,22 @@ class Commands {
         return instructionList;
     }
 
+    public int getForwardDistance() {
+        return forwardDistance;
+    }
+
+    public void setForwardDistance(int forwardDistance) {
+        this.forwardDistance = forwardDistance;
+    }
+    
+    public int getBackwardsDistance() {
+        return backwardsDistance;
+    }
+
+    public void setBackwardsDistance(int backwardsDistance) {
+        this.backwardsDistance = backwardsDistance;
+    }
+    
    
     
     
