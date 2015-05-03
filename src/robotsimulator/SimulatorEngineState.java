@@ -66,6 +66,7 @@ public class SimulatorEngineState {
 
     private void allowCommands() {
         Scanner myCommands = new Scanner(System.in);
+        userCommands.setMyRobot();
         
         String commands = "start";
         
@@ -74,6 +75,7 @@ public class SimulatorEngineState {
            commands = myCommands.next();
             switch (commands) {
                 case "go":
+                    readCommandList();
                     commands = "go";
                     break;
                 case "commands":
@@ -89,7 +91,8 @@ public class SimulatorEngineState {
                     break;
                 case "forward": System.out.println("In centimetres, how far would you like to move forward?");
                 int centimetresForward = myCommands.nextInt();
-                userCommands.setForwardDistance(centimetresForward);
+                    userCommands.setForwardDistance(centimetresForward);
+                        
                     break;
                 case "backward": System.out.println("In centimetres, how far would you like to move backwards?");
                 int centimetresBackward = myCommands.nextInt();
@@ -97,7 +100,7 @@ public class SimulatorEngineState {
                         
                     break;
                 case "exit":  // Can change the code to finish everything it is doing and exit via control flow.
-                    System.exit(0);
+                    shutDown ();
                 default: ;
             }
             // The if statement below is to stop the program adding the user interface commands to the robots command list

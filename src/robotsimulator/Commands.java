@@ -39,10 +39,10 @@ class Commands {
             moveToLocation.turnRight(centimetres);
         }
     public void forward(int centimetres){
-            
+            moveToLocation.moveForward(centimetres);
         }
-    public void backwards(int degrees){
-            
+    public void backwards(int centimetres){
+            moveToLocation.moveBackwards(centimetres);
         }
     public void wait(int seconds){
         
@@ -83,8 +83,8 @@ class Commands {
         return myRobot;
     }
 
-    public void setMyRobot(Robot myRobot) {
-        this.myRobot = myRobot;
+    public void setMyRobot() {
+        myRobot = new Robot();
     }
 
     public ArrayList getTimeQeue() {
@@ -114,6 +114,7 @@ class Commands {
 
     public void setForwardDistance(int forwardDistance) {
         this.forwardDistance = forwardDistance;
+        
     }
     
     public int getBackwardsDistance() {
@@ -123,6 +124,8 @@ class Commands {
     public void setBackwardsDistance(int backwardsDistance) {
         this.backwardsDistance = backwardsDistance;
     }
+
+    
     
    
     

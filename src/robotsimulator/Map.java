@@ -17,6 +17,7 @@ class Map {
         yCoordinates = 0;
         cardinalDirection = "North";
         rotationalDegree = 0;
+        System.out.println("xCoordinates = "+xCoordinates+"\nyCoordinates = "+xCoordinates);//testing
     }
 
     public String getCardinalDirection() {
@@ -63,6 +64,7 @@ class Map {
             cardinalDirection = "North-West";
         }
         else{ }
+        
         return cardinalDirection;
     }
 
@@ -72,10 +74,12 @@ class Map {
 
     public void setxCoordinates(int xCoordinates) {
         this.xCoordinates = xCoordinates;
+        System.out.println("xCoordinates = "+xCoordinates+"\nyCoordinates = "+xCoordinates);//testing
     }
 
     public void setyCoordinates(int yCoordinates) {
         this.yCoordinates = yCoordinates;
+        System.out.println("xCoordinates = "+xCoordinates+"\nyCoordinates = "+yCoordinates);//testing
     }
     
     

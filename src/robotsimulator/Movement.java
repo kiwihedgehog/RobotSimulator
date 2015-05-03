@@ -9,6 +9,7 @@ import java.util.ArrayList;
 class Movement {
     int degreeDirection;
     private Robot myRobot;
+    Map location;
     
     public int calculateRotation(int motorPowerRight, int motorPowerLeft) {
         int degreesToTurn; // place holder
@@ -50,6 +51,31 @@ class Movement {
     }
 
     public void moveBackwards(int centimetres) {
+         Map backwardLocation = myRobot.getRobotLocation();
+         
+       int newCoordinates;
+       System.out.println(backwardLocation.getCardinalDirection());//testing
+       // Uses the cardinal direction to establish which of its four degrees of movement it will take.
+       switch(backwardLocation.getCardinalDirection()) {
+           case "North":
+              newCoordinates = backwardLocation.getyCoordinates() -  centimetres;
+              backwardLocation.setyCoordinates(newCoordinates);
+               break;
+           case "East":
+               newCoordinates = backwardLocation.getxCoordinates() - centimetres;
+               backwardLocation.setxCoordinates(newCoordinates);
+               break;
+           case "South":
+               newCoordinates = backwardLocation.getyCoordinates() + centimetres;
+               backwardLocation.setyCoordinates(newCoordinates);
+               break;
+           case "West": 
+               newCoordinates = backwardLocation.getxCoordinates() + centimetres;
+               backwardLocation.setxCoordinates(newCoordinates);
+               break;
+       }
+        
+       myRobot.setRobotLocation(backwardLocation);
     }
 
     public int turnLeft(int degreesToTurn) {
@@ -83,6 +109,7 @@ class Movement {
                forwardLocation.setxCoordinates(newCoordinates);
                break;
        }
+       
        myRobot.setRobotLocation(forwardLocation);
        
     }
