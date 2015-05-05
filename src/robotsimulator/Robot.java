@@ -33,7 +33,7 @@ class Robot {
         return TotaldistanceTravelled;
     }
    
-            public int[][] getMapLocationLog() {
+        public int[][] getMapLocationLog() {
         return mapLocationLog;
     }
 

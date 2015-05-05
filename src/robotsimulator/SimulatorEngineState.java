@@ -61,7 +61,8 @@ public class SimulatorEngineState {
     }
     
         public void evaluatePosition(Robot robotLocation) {
-        System.out.println("Robot is now located at the co ordinates of " + "");
+            Object test = userCommands.getMyRobot();
+        System.out.println("Robot is now located at the co ordinates of ");
     }
 
     private void allowCommands() {
@@ -98,6 +99,16 @@ public class SimulatorEngineState {
                 userCommands.setBackwardsDistance(centimetresBackward);
                         
                     break;
+                case "right": System.out.println("In degrees, how far would you like to rotate?");
+                    int rightrotate = myCommands.nextInt();
+                    userCommands.setDegreesToTurn(rightrotate);
+                    break;
+                    
+                    case "left": System.out.println("In degrees, how far would you like to rotate?");
+                    int leftrotate = myCommands.nextInt();
+                    userCommands.setDegreesToTurn(leftrotate);
+                    break;
+                        
                 case "exit":  // Can change the code to finish everything it is doing and exit via control flow.
                     shutDown ();
                 default: ;
@@ -128,15 +139,15 @@ public class SimulatorEngineState {
             case "forward": 
                 System.out.println("\nForward Hit\n");
                 userCommands.forward();
-            //evaluatePosition(userCommands.getMyRobot());
+            evaluatePosition(userCommands.getMyRobot());
                 break;
             case "backward": 
                 System.out.println("\nBackward Hit\n");
                 userCommands.backwards(userCommands.getBackwardsDistance());
                 break;
-            case "left": userCommands.left(userCommands.getDegreesToTurn());
+            case "left": userCommands.left();
                 break;
-            case "right": userCommands.right(userCommands.getDegreesToTurn());
+            case "right": userCommands.right();
                 break;
             case "wait": userCommands.wait(userCommands.getWaitTime());
                 break;

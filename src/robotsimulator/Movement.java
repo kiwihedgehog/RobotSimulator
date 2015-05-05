@@ -47,10 +47,13 @@ class Movement {
     }
 
     public int turnRight(int degreesToTurn) {
+        Map rightLocation = myRobot.getRobotLocation();
         if((degreeDirection + degreesToTurn) > 360){
             degreeDirection += degreesToTurn - 360;
         }
         else{ degreeDirection += degreesToTurn; }
+        rightLocation.setCardinalDirection(degreeDirection);
+        System.out.println("\nRight " + rightLocation.getCardinalDirection());//testing
         return degreeDirection;
     }
 
@@ -83,10 +86,13 @@ class Movement {
     }
 
     public int turnLeft(int degreesToTurn) {
+        Map leftLocation = myRobot.getRobotLocation();
          if(degreesToTurn <= degreeDirection){
         degreeDirection -= degreesToTurn;
         }
          else{degreeDirection = degreesToTurn - 360;}
+         leftLocation.setCardinalDirection(degreeDirection);
+        System.out.println("\nRight " + leftLocation.getCardinalDirection());//testing
         return degreeDirection;
     }
 
