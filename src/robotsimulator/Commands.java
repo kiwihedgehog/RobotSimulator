@@ -38,9 +38,11 @@ class Commands {
     public void right(int centimetres){
             moveToLocation.turnRight(centimetres);
         }
-    public void forward(int centimetres){
-            moveToLocation.moveForward(centimetres);
+    public void forward(){
+            moveToLocation.moveForward(forwardDistance);
+            System.out.println("moveForward " + forwardDistance);//test
         }
+    
     public void backwards(int centimetres){
             moveToLocation.moveBackwards(centimetres);
         }
@@ -85,6 +87,7 @@ class Commands {
 
     public void setMyRobot() {
         myRobot = new Robot();
+        moveToLocation = new Movement(myRobot);
     }
 
     public ArrayList getTimeQeue() {
@@ -95,7 +98,7 @@ class Commands {
         this.timeQeue = timeQeue;
     }
 
-    public ArrayList getCommandList() {
+    public ArrayList<String> getCommandList() {
         return commandList;
     }
 
@@ -114,7 +117,6 @@ class Commands {
 
     public void setForwardDistance(int forwardDistance) {
         this.forwardDistance = forwardDistance;
-        
     }
     
     public int getBackwardsDistance() {

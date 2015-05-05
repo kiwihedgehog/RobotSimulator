@@ -10,6 +10,10 @@ class Movement {
     int degreeDirection;
     private Robot myRobot;
     Map location;
+
+    public Movement(Robot myRobot) {
+        this.myRobot = myRobot;
+    }
     
     public int calculateRotation(int motorPowerRight, int motorPowerLeft) {
         int degreesToTurn; // place holder
@@ -54,7 +58,7 @@ class Movement {
          Map backwardLocation = myRobot.getRobotLocation();
          
        int newCoordinates;
-       System.out.println(backwardLocation.getCardinalDirection());//testing
+       System.out.println("\n" + backwardLocation.getCardinalDirection());//testing
        // Uses the cardinal direction to establish which of its four degrees of movement it will take.
        switch(backwardLocation.getCardinalDirection()) {
            case "North":
@@ -88,8 +92,9 @@ class Movement {
 
     public void moveForward(int centimetres) {
        Map forwardLocation = myRobot.getRobotLocation();
-       int newCoordinates;
        
+       int newCoordinates;
+       System.out.println("\n" + forwardLocation.getCardinalDirection());//testing
        // Uses the cardinal direction to establish which of its four degrees of movement it will take.
        switch(forwardLocation.getCardinalDirection()) {
            case "North":

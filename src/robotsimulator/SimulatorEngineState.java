@@ -75,7 +75,6 @@ public class SimulatorEngineState {
            commands = myCommands.next();
             switch (commands) {
                 case "go":
-                    readCommandList();
                     commands = "go";
                     break;
                 case "commands":
@@ -117,18 +116,23 @@ public class SimulatorEngineState {
 
 	// Loop through elements.
 	for (int i = 0; i < userCommands.getCommandList().size(); i++) {
-	    String value = (userCommands.getCommandList().get(i)).toString();
+	    String value = (userCommands.getCommandList().get(i));
 	    System.out.println("Command: " + value);
 	}
     }
 
     private void readCommandList(){
-    for(int i = 0; i > userCommands.getCommandList().size(); i++){
+    for(int i = 0; i < userCommands.getCommandList().size(); i++){
         
-        switch(userCommands.getCommandList().get(i).toString()) {
-            case "forward": userCommands.forward(userCommands.getForwardDistance());
+        switch(userCommands.getCommandList().get(i)) {
+            case "forward": 
+                System.out.println("\nForward Hit\n");
+                userCommands.forward();
+            //evaluatePosition(userCommands.getMyRobot());
                 break;
-            case "backward": userCommands.backwards(userCommands.getBackwardsDistance());
+            case "backward": 
+                System.out.println("\nBackward Hit\n");
+                userCommands.backwards(userCommands.getBackwardsDistance());
                 break;
             case "left": userCommands.left(userCommands.getDegreesToTurn());
                 break;
